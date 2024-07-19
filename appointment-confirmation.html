@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>예약 확인</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>예약 확인</h1>
+        <div id="successMessage" style="display: none;">
+            <p>예약이 성공적으로 생성되었습니다.</p>
+        </div>
+        <div id="errorMessage" style="display: none;">
+            <p>예약 생성 중 오류가 발생했습니다. 다시 시도해 주세요.</p>
+        </div>
+        <a href="index.html" class="button">홈으로 돌아가기</a>
+    </div>
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var status = urlParams.get('status');
+        if (status === 'success') {
+            document.getElementById('successMessage').style.display = 'block';
+        } else if (status === 'error') {
+            document.getElementById('errorMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
